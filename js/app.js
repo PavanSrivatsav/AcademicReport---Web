@@ -101,6 +101,9 @@ revature.controller('mainCtrl', ['$scope', '$http', '$window', function ($scope,
 
 revature.controller('headerCtrl', ['$scope', '$uibModal', function ($scope, $uibModal) {
     console.log("header ctrl called");
+    $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
+    console.log("Name of logged user",$scope.loggedUser.name);
+    $scope.username=$scope.loggedUser.name;
     $scope.loading = true;
     $scope.changePassword = function () {
         var modal = $uibModal.open({

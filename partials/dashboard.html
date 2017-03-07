@@ -16,7 +16,7 @@
 
                 <table class="table table-hover table-bordered" id="tab1">
                     <thead>
-                        <p><strong>Students with active courses</strong></p>
+                        <p><strong>Students with Completed courses</strong></p>
                     </thead>
                     <tbody ng-repeat="students in activeCourseStudents.data">
                         <tr>
@@ -38,7 +38,8 @@
                     </thead>
                     <tbody ng-repeat="student in activeProjectStudents.data">
                         <tr>
-                            <td><span><i class="fa fa-user" aria-hidden="true"></i></span> <a href="stud1.html" style="color: #0f0f0f">{{student.NAME}}</a>
+                            <td><span><i class="fa fa-user" aria-hidden="true"></i></span>
+                                <a ui-sref="individualStudent ({id: student.ID , name: student.NAME})" style="color: #0f0f0f">{{student.NAME}}</a>
                             </td>
                         </tr>
 
