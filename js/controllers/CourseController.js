@@ -1,6 +1,6 @@
 revature.controller('courseCtrl', ['$scope', '$http', '$uibModal', '$rootScope', function ($scope, $http, $uibModal, $rootScope) {
     console.log("==course controller==");
-    $rootScope.title = "Courses";
+    $rootScope.title = " Academic | Courses";
     $scope.courseList = [];
     $scope.loading = true;
 

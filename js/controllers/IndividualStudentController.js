@@ -5,7 +5,7 @@ revature.controller('individualStudentCtrl', ['$scope', '$http', '$stateParams',
     var id = $stateParams.id;
     var name = $stateParams.name;
 
-    $rootScope.title = name;
+    $rootScope.title = " Academic | " + name;
 
 
     $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));

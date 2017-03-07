@@ -1,6 +1,6 @@
 revature.controller('projectModalCtrl', ['$scope', '$http', '$uibModalInstance', 'id', '$rootScope', function ($scope, $http, $uibModalInstance, id, $rootScope) {
     console.log("project controller", id);
-    $rootScope.title = "Project";
+    $rootScope.title = " Academic | Project";
     $scope.projectModalList = [];
     $scope.loading = true;
     $http.get('http://localhost:8080/core-app/projects/list/project/detail/projectId/' + id).then(successCallback, errorCallback);

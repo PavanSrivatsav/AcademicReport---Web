@@ -1,10 +1,10 @@
 revature.controller('projectCtrl', ['$scope', '$http', '$uibModal', '$rootScope', function ($scope, $http, $uibModal, $rootScope) {
     console.log("project controller");
-    $rootScope.title = "Projects";
+    $rootScope.title = " Academic | Projects";
     $scope.loading = true;
 
     $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
-   
+
     var collegeId = $scope.loggedUser.collegeId;
     var deptId = $scope.loggedUser.departmentId;
 

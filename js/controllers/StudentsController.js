@@ -32,7 +32,7 @@ revature.controller('studentsProfileCtrl', ['$scope', '$http', '$rootScope', fun
 
     //  $scope.loading = true; 
 
-$rootScope.title="Students";
+    $rootScope.title = " Academic | Students";
 
     // $http.get('http://localhost:8080/core-app/students/overall/student/current/courses/collegeId/3/departmentId/1').then(successCallback, errorCallback);
     // $http.get('http://localhost:8080/core-app/students/overall/student/current/courses/collegeId/3/departmentId/1').then(successCallback1, errorCallback1);

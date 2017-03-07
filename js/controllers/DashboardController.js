@@ -1,5 +1,5 @@
 revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
-    $rootScope.title = "Dashboard";
+    $rootScope.title = " Academic | Dashboard";
 
     $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
     var collegeId = $scope.loggedUser.collegeId;
