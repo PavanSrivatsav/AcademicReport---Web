@@ -50,20 +50,6 @@ revature.config(function ($stateProvider, $urlRouterProvider) {
             controller: "mainCtrl"
         })
 
-    // .state('changePassword', {
-    //     url: "/changePassword",
-    //     templateUrl: "modals/changePasswordModal.html",
-    //     controller: "headerModalCtrl"
-    // })
-
-    //   .state('collapse0', {
-    //     url: "/collapse0",
-    //     //templateUrl: "modals/changePasswordModal.html",
-    //     // controller: "mainCtrl"
-    // })
-
-
-
 });
 
 // revature.run(function ($rootScope) {
