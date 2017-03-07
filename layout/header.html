@@ -34,13 +34,14 @@
     <script src="../js/lib/angular-ui-router.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../js/lib/ui-bootstrap.js"></script>
+    <script src="../js/lib/bootstrap.min.js"></script>
 
     <!--Scripts-->
     <script src="../js/app.js"></script>
 
 </head>
 
-<body ng-controller="headerCtrl">
+<body>
     <nav class="navbar navbar-default navbar-fixed-top" id="header-height">
         <div class="container-fluid container">
             <div class="navbar-header">
@@ -80,13 +81,19 @@
                         </ul>
                     </div>
                     <ul class="dropdown-menu" style="margin-top:4px">
-                        <li><a href="#" data-toggle="modal" data-target="#changePassword">Change Password
+                        <li>
+                            <!--<a href="#" data-toggle="modal" data-target="#changePassword">Change Password
+                        <span style="float: right">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </a>-->
+                            <a ng-click="changePassword()">Change Password
                         <span style="float: right">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
                     </a>
                         </li>
-                        <li><a href="../index.html">Logout
+                        <li><a href="../index.html" ng-click="logout()">Logout
                         <span style="float: right">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                         </span>
@@ -99,45 +106,7 @@
 
         </div>
         <!-- Collapse-->
-    </nav>
-
-    <div id="changePassword" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Change Password</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="currentPassword">Current Password:</label>
-                            <input type="password" class="form-control" id="currentPassword" placeholder="Current Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="newPassword">New Password:</label>
-                            <input type="password" class="form-control" id="newPassword" placeholder="New Password">
-
-                            <label for="retypeNewPassword">Retype New Password:</label>
-                            <input type="password" class="form-control" id="retypeNewPassword" placeholder="Retype New Password">
-
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <br><br><br>
+    </nav> <br><br><br>
 </body>
 
 </html>

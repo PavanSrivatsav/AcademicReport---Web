@@ -4,6 +4,7 @@ revature.controller('projectCtrl', ['$scope', '$http', '$uibModal', '$rootScope'
     $scope.loading = true;
 
     $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
+   
     var collegeId = $scope.loggedUser.collegeId;
     var deptId = $scope.loggedUser.departmentId;
 

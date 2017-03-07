@@ -33,9 +33,9 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="js/lib/ui-bootstrap.js"></script>
     <script src="js/lib/lodash.min.js"></script>
+    <script src="js/lib/angular-resource.js"></script>
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/lib/angular-resource.js"></script>
 
     <!--Scripts-->
     <script src="js/app.js"></script>
@@ -52,28 +52,28 @@
 <body ng-controller="mainCtrl">
 
     <!--Header-->
-    <div ng-include="'layout/header.html'" ng-if="!loading"></div>
+    <div ng-include="'layout/header.html'" ng-show="!loading" ng-controller="headerCtrl"></div>
     <!--
     <div style="text-align: center">
         <img id="mySpinner" src="images/spinner/loading.gif" ng-show="loading" />
     </div>-->
-<!--============={{loading}}===============-->
+    <!--============={{loading}}===============-->
     <div ui-view></div>
 
     <!-- footer-->
-    <div ng-include="'layout/footer.html'"  ng-if="!loading"></div>
+    <div ng-include="'layout/footer.html'" ng-show="!loading" ng-controller="footerCtrl"></div>
 
 </body>
 
 
 <!--<body >-->
 <!--<div class="loading-image" ng-show="isLoading">-->
-    <!--<img src="css/loading.gif" />-->
+<!--<img src="css/loading.gif" />-->
 <!--</div>-->
 <!--<div ui-view></div>-->
 <!--&lt;!&ndash; BEGIN FOOTER &ndash;&gt;-->
 <!--<div class="nav-bottom">-->
-    <!--<div class="container footer"> 2016 &copy; <a href="http://www.bionworks.com">Bion Works Pvt Ltd.,</a></div>-->
+<!--<div class="container footer"> 2016 &copy; <a href="http://www.bionworks.com">Bion Works Pvt Ltd.,</a></div>-->
 <!--</div>-->
 <!--&lt;!&ndash;END OF FOOTER &ndash;&gt;-->
 <!--</body>-->

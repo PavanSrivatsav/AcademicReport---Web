@@ -50,11 +50,11 @@ revature.config(function ($stateProvider, $urlRouterProvider) {
             controller: "mainCtrl"
         })
 
-        .state('changePassword', {
-            url: "/changePassword",
-            templateUrl: "modals/changePasswordModal.html",
-            // controller: "mainCtrl"
-        })
+    // .state('changePassword', {
+    //     url: "/changePassword",
+    //     templateUrl: "modals/changePasswordModal.html",
+    //     controller: "headerModalCtrl"
+    // })
 
     //   .state('collapse0', {
     //     url: "/collapse0",
@@ -105,30 +105,50 @@ revature.controller('loginController', ['$rootScope', '$scope', '$http', '$windo
 
 }]);
 
-revature.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
+revature.controller('mainCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window) {
     console.log("mainctrl");
+    $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
+    if ($scope.loggedUser == null) {
+        $window.location.href = "index.html";
+    }
+}]);
 
-    // $scope.loading = true;
-    // $http.get('http://localhost:8080/core-app/dashboard/trendingproject/collegeId/1')
-    //     .success(function (data) {
-    //         console.log('success');
-    //     })
-    //     .catch(function (err) {
-    //         console.log('failed');
-    //     })
-    //     .finally(function () {
-    //         // Hide loading spinner whether our call succeeded or failed.
-    //         $scope.loading = false;
-    //     });
+revature.controller('headerCtrl', ['$scope', '$uibModal', function ($scope, $uibModal) {
+    console.log("header ctrl called");
+    $scope.loading = true;
+    $scope.changePassword = function () {
+        var modal = $uibModal.open({
+            animation: true,
+            templateUrl: "modals/changePasswordModal.html",
+            controller: "headerModalCtrl",
+            size: 'lg',
+            backdrop: 'static',
 
+        })
+    }
+    $scope.loading = false;
+
+    $scope.logout = function () {
+        console.log("logout successful");
+        localStorage.clear();
+    }
+}]);
+
+revature.controller('headerModalCtrl', ['$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {
+    console.log("headerModal ctrl called");
+    $scope.loading = true;
+    $scope.close = function () {
+        $uibModalInstance.close();
+    }
     $scope.loading = false;
 }]);
 
-revature.controller('headerCtrl', ['$scope', function ($scope) {
-    console.log("header ctrl called");
 
-}])
+revature.controller('footerCtrl', ['$scope', function ($scope) {
+    console.log("footer ctrl called");
+    $scope.loading = true;
 
-
+    $scope.loading = false;
+}]);
 
 
