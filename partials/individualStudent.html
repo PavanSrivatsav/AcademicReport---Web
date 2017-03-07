@@ -1,0 +1,58 @@
+<div style="text-align: center">
+    <img id="mySpinner" src="images/spinner/loading.gif" ng-show="loading" />
+</div>
+<div style="background-color: #474C55" ng-show="!loading">
+    <div class=" container">
+        <div class="row">
+            <br>
+            <div class="col-md-2">
+                <div class="panel panel-default " style="background-color: #474C55;border-color: transparent">
+                    <img src="images/user.png" height="100%" width="100%" style="border-radius: 50% ; margin-top:-8px;">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <br>
+                <div style="color: #ffffff;">
+                    <p><i class="fa fa-user" aria-hidden="true"></i> Name : {{indStud.NAME}} <br></p>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; Department : {{indStud.department_name}}<br></p>
+                    <p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; Email ID : {{indStud.EMAIL_ID}}<br></p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i>&nbsp; Mobile Number : {{indStud.PHONE}}<br></p>
+                </div>
+
+            </div>
+            <!--<div class="col-md-3">-->
+            <p style="color:white;float:right"><i class="fa fa-id-card" aria-hidden="true"></i> &nbsp;Batch : {{indStud.BATCH}} </p> <br>
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<br>
+<div class="container" ng-show="!loading">
+    <div class="row">
+        <div class="col-xs-6 splitter" style="text-align: center; overflow: auto;  height: 280px;">
+            <p><strong>Projects</strong></p>
+            <div class="panel panel-default" ng-repeat="i in studProjects">
+                <div class="panel-heading">{{i.project_name}}</div>
+                <div class="panel-body">
+                    <p style="text-align: justify"> {{i.description}}
+                    </p>
+                    <div class="btn btn-primary" data-toggle="modal" data-target="#mypp1">
+                        view
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6" style="text-align: center; overflow: auto; height: 20%;">
+            <p><strong>Courses</strong></p>
+            <div class="panel-group success" ng-repeat="i in studCourses">
+                <a href="#" data-toggle="modal" data-target="#mypp1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading ">{{i.courses_name}}</div>
+
+                    </div>
+                </a>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div style="text-align: center">
+    <img id="mySpinner" src="images/spinner/loading.gif" ng-show="loading" />
+</div>
+<div class="row" style="background-color: #474C55;height:50px;" ng-show="!loading">
+    <div class="container ">
+        <ol class="breadcrumb bread">
+            <li class="breadcrumb-item ">Dashboard</li>
+        </ol>
+    </div>
+</div>
+<br>
+<div class=" container" ng-show="!loading">
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <table class="table table-hover table-bordered" id="tab1">
+                    <thead>
+                        <p><strong>Students with active courses</strong></p>
+                    </thead>
+                    <tbody ng-repeat="students in activeCourseStudents.data">
+                        <tr>
+                            <td><span><i class="fa fa-user" aria-hidden="true"></i></span>
+                                <a ui-sref="individualStudent ({id: students.ID , name: students.NAME})" style="color: #0f0f0f">
+                                    {{students.NAME}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-hover table-bordered">
+                    <thead class="active">
+                        <p><strong>Students with active projects</strong></p>
+                    </thead>
+                    <tbody ng-repeat="student in activeProjectStudents.data">
+                        <tr>
+                            <td><span><i class="fa fa-user" aria-hidden="true"></i></span> <a href="stud1.html" style="color: #0f0f0f">{{student.NAME}}</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <center>
+        <h1>Trending</h1>
+    </center>
+    <div class="col-lg-4" style="margin-top:-10px;">
+        <div id="coursedonutchart" style="width: 580px; height: 550px;"></div>
+    </div>
+    <div class="col-lg-4 col-lg-offset-1 col-sm-12 col-xs-12 ">
+        <div id="projectdonutchart" style="width: 580px; height: 550px;"></div>
+    </div>
+</div>

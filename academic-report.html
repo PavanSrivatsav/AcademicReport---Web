@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="academicReport">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title> Academic | {{title}}</title>
+
+    <link rel="icon" href="images/favicon.png">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+    <!--Icons-->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+    <!-- Own CSS-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <!--[endif]-->
+
+    <!--Angular-->
+    <script src="js/lib/angular.min.js"></script>
+
+    <!--External Scripts-->
+    <script src="js/dirPagination.js"></script>
+    <script src="js/lib/angular-ui-router.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/lib/ui-bootstrap.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/angular-resource.js"></script>
+
+    <!--Scripts-->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/DashboardController.js"></script>
+    <script src="js/controllers/IndividualStudentController.js"></script>
+    <script src="js/controllers/StudentsController.js"></script>
+    <script src="js/controllers/CourseController.js"></script>
+    <script src="js/controllers/CourseModalController.js"></script>
+    <script src="js/controllers/ProjectController.js"></script>
+    <script src="js/controllers/ProjectModalController.js"></script>
+
+</head>
+
+<body ng-controller="mainCtrl">
+
+    <!--Header-->
+    <div ng-include="'layout/header.html'" ng-if="!loading"></div>
+    <!--
+    <div style="text-align: center">
+        <img id="mySpinner" src="images/spinner/loading.gif" ng-show="loading" />
+    </div>-->
+<!--============={{loading}}===============-->
+    <div ui-view></div>
+
+    <!-- footer-->
+    <div ng-include="'layout/footer.html'"  ng-if="!loading"></div>
+
+</body>
+
+
+<!--<body >-->
+<!--<div class="loading-image" ng-show="isLoading">-->
+    <!--<img src="css/loading.gif" />-->
+<!--</div>-->
+<!--<div ui-view></div>-->
+<!--&lt;!&ndash; BEGIN FOOTER &ndash;&gt;-->
+<!--<div class="nav-bottom">-->
+    <!--<div class="container footer"> 2016 &copy; <a href="http://www.bionworks.com">Bion Works Pvt Ltd.,</a></div>-->
+<!--</div>-->
+<!--&lt;!&ndash;END OF FOOTER &ndash;&gt;-->
+<!--</body>-->
+
+
+</html>

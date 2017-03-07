@@ -1,0 +1,41 @@
+<div style="text-align: center">
+    <img id="mySpinner" src="images/spinner/loading.gif" ng-show="loading" />
+</div>
+<div class="row" style="background-color: #474C55;height:50px;" ng-show="!loading">
+    <div class="container ">
+        <ol class="breadcrumb bread">
+            <li class="breadcrumb-item ">Courses</li>
+        </ol>
+    </div>
+</div>
+
+<br>
+
+<div class="container " ng-controller="courseCtrl" ng-show="!loading">
+    <div ng-repeat="i in courseList">
+        <div class="row">
+
+
+            <div class="col-md-12">
+
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">{{i.NAME}}</div>
+                        <div class="panel-body">
+
+                            <div class="col-md-3">
+                                <img src="images/projects/project_image.jpg" width="100%">
+                            </div>
+                            <div class="col-md-8 col-md-offset-1" style="text-align: justify">
+                                {{i.DESCRIPTION}} <br>
+                                <div class="btn btn-primary" ng-click="openView(i.NAME)">View</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
