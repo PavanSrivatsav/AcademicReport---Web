@@ -55,6 +55,8 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
                     fontName: "Futura PT",
                     bold: false,
                 }
+                , width: 600
+                , height: 600
 
             };
 
@@ -110,7 +112,8 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
                     fontSize: 35,
                     fontName: "Futura PT",
                     bold: false,
-                }
+                }, width: 600
+                , height: 600
 
             };
 

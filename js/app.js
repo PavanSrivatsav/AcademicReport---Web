@@ -52,9 +52,6 @@ revature.config(function ($stateProvider, $urlRouterProvider) {
 
 });
 
-// revature.run(function ($rootScope) {
-//     $rootScope.LOGGED_USER;
-// });
 
 revature.controller('loginController', ['$rootScope', '$scope', '$http', '$window', '$timeout', function ($rootScope, $scope, $http, $window, $timeout) {
     console.log("login ctrl");
