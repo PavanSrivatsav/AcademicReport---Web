@@ -63,8 +63,7 @@
             <!--<form class="form-group">-->
             <ul class="nav navbar-nav navbar-brand navbar-right">
                 <!--<li><i class="fa fa-lock" aria-hidden="true" style="vertical-align: middle"></i></li>-->
-                <li><input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="password">
-
+                <li><input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="password">                    {{error}}
                     <li>&nbsp;&nbsp;
                         <button class="btn btn-sm  waves-effect waves-light" id="login-btn" type="submit" ng-click="login()">Login</button>
                     </li>
@@ -76,7 +75,6 @@
                 <!--<li > <b> Forgot Password? </b></li>-->
 
             </ul>
-            <div>{{error}}</div>
         </form>
     </div>
     <br>

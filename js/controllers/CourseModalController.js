@@ -1,12 +1,13 @@
-revature.controller('courseModal', ['$scope', '$http', 'nameView', '$uibModalInstance', '$rootScope', function ($scope, $http, nameView, $uibModalInstance, $rootScope) {
-    console.log("course controller", nameView);
+revature.controller('courseModal', ['$scope', '$http', 'id', '$uibModalInstance', '$rootScope', function ($scope, $http, id, $uibModalInstance, $rootScope) {
+    console.log("course controller", id);
     $rootScope.title = " Academic | Course";
-    $scope.name = nameView;
+    var courseId = id;
+    $scope.id = courseId;
     $scope.courseModalList = [];
     $scope.loading = true;
 
 
-    $http.get('http://localhost:8080/core-app/courses/list/course/detail/courseId/1').then(successCallback, errorCallback);
+    $http.get('http://localhost:8080/core-app/courses/list/course/detail/course/' + courseId).then(successCallback, errorCallback);
 
     function successCallback(response) {
         //success code

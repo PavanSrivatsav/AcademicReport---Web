@@ -27,7 +27,7 @@
                                     <img src="images/projects/project_image.jpg" width="100%">
                                 </div>
                                 <div class="col-md-8 col-md-offset-1" style="text-align: justify">
-                                    {{i.DESCRIPTION}} <br>
+                                    {{i.DESCRIPTION | limitTo: 350}}.... <br>
                                     <!--<div class="btn btn-primary" data-toggle="modal" data-target="#myModal"+{{a}} >view</div>-->
                                     <div class="btn btn-primary" ng-click="openView(i.ID)">View</div>
                                 </div>

@@ -99,8 +99,8 @@ revature.controller('mainCtrl', ['$scope', '$http', '$window', function ($scope,
 revature.controller('headerCtrl', ['$scope', '$uibModal', function ($scope, $uibModal) {
     console.log("header ctrl called");
     $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
-    console.log("Name of logged user",$scope.loggedUser.name);
-    $scope.username=$scope.loggedUser.name;
+    console.log("Name of logged user", $scope.loggedUser.name);
+    $scope.username = $scope.loggedUser.name;
     $scope.loading = true;
     $scope.changePassword = function () {
         var modal = $uibModal.open({
@@ -118,6 +118,19 @@ revature.controller('headerCtrl', ['$scope', '$uibModal', function ($scope, $uib
         console.log("logout successful");
         localStorage.clear();
     }
+
+    // $scope.check = function () {
+    //     console.log("check called");
+    //     if ($scope.retype === $scope.pass) {
+    //         console.log("true");
+    //         return true;
+    //     }
+    //     else {
+    //         console.log("false");
+    //         return false;
+    //     }
+
+    // }
 }]);
 
 revature.controller('headerModalCtrl', ['$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {

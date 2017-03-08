@@ -9,7 +9,6 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
     $scope.courseList = [];
     $scope.loading = true;
 
-
     $http.get(' http://localhost:8080/core-app/dashboard/trendingcourse/collegeId/' + collegeId).then(successCallback, errorCallback);
 
     function successCallback(response) {
@@ -38,6 +37,7 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
             ];
 
             for (i in result) {
+
                 console.log("result", result[i]);
                 var courseObj = result[i];
                 var courseData = [courseObj.NAME, courseObj['Trending course count']];
@@ -55,20 +55,16 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
                     fontName: "Futura PT",
                     bold: false,
                 }
-                , width: 600
-                , height: 600
+                , width: 500
+                , height: 500
 
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('coursedonutchart'));
             console.log("chartData", chartData, "options", options)
             chart.draw(chartData, options);
-
         }
-
-
     }
-
 
     //Project Graph
 
@@ -82,6 +78,7 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
         console.log(JSON.stringify(response));
         $scope.loadedProjectGraphData($scope.projectList.data);
         $scope.loading = false;
+        $rootScope.loading = false;
     }
     function projecterrorCallback(error) {
         //error code
@@ -112,8 +109,8 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
                     fontSize: 35,
                     fontName: "Futura PT",
                     bold: false,
-                }, width: 600
-                , height: 600
+                }, width: 500
+                , height: 500
 
             };
 

@@ -20,15 +20,15 @@
 
                 <div class="panel-group">
                     <div class="panel panel-default">
-                        <div class="panel-heading">{{i.NAME}}</div>
+                        <div class="panel-heading">{{i.name}}</div>
                         <div class="panel-body">
 
                             <div class="col-md-3">
                                 <img src="images/projects/project_image.jpg" width="100%">
                             </div>
                             <div class="col-md-8 col-md-offset-1" style="text-align: justify">
-                                {{i.DESCRIPTION}} <br>
-                                <div class="btn btn-primary" ng-click="openView(i.NAME)">View</div>
+                                {{i.description| limitTo: 350}}.... <br>
+                                <div class="btn btn-primary" ng-click="openView(i.id)">View</div>
                             </div>
                         </div>
                     </div>

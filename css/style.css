@@ -18,14 +18,10 @@ body {
 
 /*header and footer**/
 #header-height {
-    height: 13.80%;
+    min-height: 80px !important;
+    margin-bottom:0 !important;
     background-color: #FFFFFF;
-    padding-right: 20px;
-}
-
-.header-bar-headings {
-    padding-top: 20px;
-
+    /*padding-right: 20px;*/
 }
 
 .bread {
@@ -37,8 +33,6 @@ body {
 .navbar-right .dropdown-menu {
     right: 0;
     left: 0;
-    /*margin-left: -20px;*/
-
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -51,12 +45,16 @@ body {
 
 #footer {
 
-    text-align: center;
+    position: relative;
+    bottom: 0;
     width: 100%;
-
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+background-color: #FFFFFF !important;
 }
 
 /***Login******/
+
 #login-btn {
     margin-top: 5px;
     width: 90px;
@@ -69,11 +67,13 @@ body {
 
 /***Dashboard***/
 
+
 .designation {
     margin-left: 40px;
 }
 
 /** Students Profile **/
+
 .studentsProfile {
     overflow-x: visible;
 }
@@ -95,21 +95,19 @@ body {
 
 a:link {
     text-decoration: none;
-
 }
 
 a:visited {
     text-decoration: none;
-
 }
 
 a:hover {
     text-decoration: none;
-
 }
 
 a:active {
     text-decoration: none;
-
 }
+
+
 

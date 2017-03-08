@@ -7,7 +7,7 @@ revature.controller('courseCtrl', ['$scope', '$http', '$uibModal', '$rootScope',
     $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
     var collegeId = $scope.loggedUser.collegeId;
 
-    $http.get('http://localhost:8080/core-app/courses/list/course/overall/detail/collegeId/' + collegeId).then(successCallback, errorCallback);
+    $http.get('http://localhost:8080/core-app/courses/list/course/overall/detail/college/' + collegeId).then(successCallback, errorCallback);
 
     function successCallback(response) {
         //success code
@@ -23,16 +23,16 @@ revature.controller('courseCtrl', ['$scope', '$http', '$uibModal', '$rootScope',
         console.log('Error: ' + error);
     }
 
-    $scope.openView = function (naming) {
+    $scope.openView = function (id) {
         var modal = $uibModal.open({
             animation: true,
             templateUrl: "modals/courseModal.html",
             controller: "courseModal",
-            size: 'lg', //sm, md, lg,
+            size: 'lg',
             backdrop: 'static',
             resolve: {
-                nameView: function () {
-                    return naming;
+                id: function () {
+                    return id;
                 }
             }
         })

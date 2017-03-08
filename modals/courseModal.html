@@ -15,37 +15,36 @@
 
 
 <div class="modal-header">
-    <div ng-repeat="a in courseModalList" ng-if="a.course_name === name && a.TEXT_CONTENT != null">
-    
-        <button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
-        <h4 class="modal-title"><strong>{{a.course_name}}</strong></h4>
+    <div ng-repeat="a in courseModalList" ng-if="a.id === id  && a.cont !=null">
+        <button type="button " class="close " data-dismiss="modal " ng-click="close() ">&times;</button>
+        <h4 class="modal-title "><strong>{{a.name}}</strong></h4>
 
 
-        <div class="modal-body">
+        <div class="modal-body ">
 
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="images/projects/project_image.jpg" width="100%">
+            <div class="row ">
+                <div class="col-md-4 ">
+                    <img src="images/projects/project_image.jpg " width="100% ">
                 </div>
-                <div class="col-md-8" style="text-align: justify">
-                    <p> {{a.TEXT_CONTENT}}
+                <div class="col-md-8 " style="text-align: justify ">
+                    <p> {{a.cont}}
                     </p>
                 </div>
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <span><i class="fa fa-film" aria-hidden="true"></i><strong> List of videos</strong></span><br><br>
-                        <ul class="list-group" style="list-style: none" ng-repeat="i in courseModalList | filter:{video_name:''}">
-                            <li><i class="fa fa-play-circle-o" aria-hidden="true"></i>&nbsp; {{i.video_name}}
+                <div class="row ">
+                    <div class="col-md-2 "></div>
+                    <div class="col-md-8 ">
+                        <span><i class="fa fa-film " aria-hidden="true "></i><strong> List of videos</strong></span><br><br>
+                        <ul class="list-group " style="list-style: none " ng-repeat="i in courseModalList | filter:{vidname:''} ">
+                            <li><i class="fa fa-play-circle-o " aria-hidden="true "></i>&nbsp; {{i.vidname}}
                             </li>
                         </ul>
                     </div>
-                    <!--<div class="col-md-2"></div>-->
+                    <!--<div class="col-md-2 "></div>-->
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="close()">
+        <div class="modal-footer ">
+            <button type="button " class="btn btn-danger " data-dismiss="modal " ng-click="close() ">
                                                     Close                                   </button>
         </div>
     </div>
