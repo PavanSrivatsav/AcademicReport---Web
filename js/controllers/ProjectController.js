@@ -8,7 +8,7 @@ revature.controller('projectCtrl', ['$scope', '$http', '$uibModal', '$rootScope'
     var collegeId = $scope.loggedUser.collegeId;
     var deptId = $scope.loggedUser.departmentId;
 
-    $http.get('http://localhost:8080/core-app/projects/list/project/overall/detail/collegeId/' + collegeId).then(successCallback, errorCallback);
+    $http.get('http://localhost:8080/core-app/projects/list/project/overall/detail/college/' + collegeId).then(successCallback, errorCallback);
 
     function successCallback(response) {
         //success code
@@ -21,7 +21,7 @@ revature.controller('projectCtrl', ['$scope', '$http', '$uibModal', '$rootScope'
         console.log('Error: ' + error);
     }
 
-    $scope.openView = function (id) {
+    $scope.openViewProject = function (id) {
         var modal = $uibModal.open({
             animation: true,
             templateUrl: "modals/projectModal.html",
@@ -29,7 +29,7 @@ revature.controller('projectCtrl', ['$scope', '$http', '$uibModal', '$rootScope'
             size: 'lg',
             backdrop: 'static',
             resolve: {
-                id: function () {
+                projId: function () {
                     return id;
                 }
             }

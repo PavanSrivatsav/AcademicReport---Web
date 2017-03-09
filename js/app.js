@@ -2,7 +2,7 @@
  * Created by PavanSrivatsav on 28-12-2016.
  */
 
-var revature = angular.module('academicReport', ['angularUtils.directives.dirPagination', 'ui.router', 'ui.bootstrap', 'ngResource']);
+var revature = angular.module('academicReport', ['angularUtils.directives.dirPagination', 'ui.router', 'ui.bootstrap']);
 
 revature.config(function ($stateProvider, $urlRouterProvider) {
 

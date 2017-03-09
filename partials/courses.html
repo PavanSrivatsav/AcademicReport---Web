@@ -1,7 +1,8 @@
 <div style="text-align: center">
     <img id="mySpinner" src="images/spinner/loading.gif" ng-show="loading" />
 </div>
-<div class="row" style="background-color: #474C55;height:50px;" ng-show="!loading">
+<span ng-show="!loading">
+<div class="row" style="background-color: #474C55;height:50px;" >
     <div class="container ">
         <ol class="breadcrumb bread">
             <li class="breadcrumb-item ">Courses</li>
@@ -11,7 +12,7 @@
 
 <br>
 
-<div class="container " ng-controller="courseCtrl" ng-show="!loading">
+<div class="container " ng-controller="courseCtrl" >
     <div ng-repeat="i in courseList">
         <div class="row">
 
@@ -28,7 +29,7 @@
                             </div>
                             <div class="col-md-8 col-md-offset-1" style="text-align: justify">
                                 {{i.description| limitTo: 350}}.... <br>
-                                <div class="btn btn-primary" ng-click="openView(i.id)">View</div>
+                                <div class="btn btn-primary" ng-click="openViewCourse(i.id)">View</div>
                             </div>
                         </div>
                     </div>
@@ -39,3 +40,4 @@
 
     </div>
 </div>
+</span>

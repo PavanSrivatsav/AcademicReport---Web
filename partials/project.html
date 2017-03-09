@@ -1,7 +1,8 @@
 <div style="text-align: center">
     <img id="mySpinner" src="images/spinner/loading.gif" ng-show="loading" />
 </div>
-<div class="row" style="background-color: #474C55;height:50px;" ng-show="!loading">
+<span ng-show="!loading">
+<div class="row" style="background-color: #474C55;height:50px;" >
     <div class="container ">
         <ol class="breadcrumb bread">
             <li class="breadcrumb-item ">Projects</li>
@@ -10,7 +11,7 @@
 </div>
 
 <br>
-<div class="container" ng-show="!loading">
+<div class="container" >
     <div class="container " ng-controller="projectCtrl">
         <div ng-repeat="i in projectList">
             <div class="row">
@@ -20,16 +21,16 @@
 
                     <div class="panel-group">
                         <div class="panel panel-default">
-                            <div class="panel-heading">{{i.NAME}}</div>
+                            <div class="panel-heading">{{i.name}}</div>
                             <div class="panel-body">
 
                                 <div class="col-md-3">
                                     <img src="images/projects/project_image.jpg" width="100%">
                                 </div>
                                 <div class="col-md-8 col-md-offset-1" style="text-align: justify">
-                                    {{i.DESCRIPTION | limitTo: 350}}.... <br>
+                                    {{i.description | limitTo: 350}}.... <br>
                                     <!--<div class="btn btn-primary" data-toggle="modal" data-target="#myModal"+{{a}} >view</div>-->
-                                    <div class="btn btn-primary" ng-click="openView(i.ID)">View</div>
+                                    <div class="btn btn-primary" ng-click="openViewProject(i.id)">View</div>
                                 </div>
                             </div>
                         </div>
@@ -40,3 +41,4 @@
         </div>
     </div>
 </div>
+</span>

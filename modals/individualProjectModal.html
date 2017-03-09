@@ -1,0 +1,67 @@
+<div class="modal-header">
+    <div style="text-align: center">
+        <img id="mySpinner" src="images/spinner/spinner-small.gif" ng-show="loading" />
+    </div>
+    <span ng-show="!loading">
+        <button type="button" class="close cross-close-button" data-dismiss="modal" ng-click="close()">&times;</button>
+        <h4 class="modal-title"><strong>{{projectModalList.name}}</strong></h4>
+
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="images/projects/project_image.jpg" width="100%">
+                </div>
+                <div class="col-md-8">
+                    <p> {{projectModalList.description}}
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <span><strong>&nbsp; Project Breakdown</strong></span>
+    <ul class="list-group" ng-repeat="pm in projectModalList.sprints">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <a data-toggle="collapse" ng-href="#{{ 'collapse' + $index }}" style="color:gray;">
+                        <h4 class="panel-title">
+                            {{pm.sprintName}}
+                        </h4>
+                    </a>
+
+                </div>
+                <div id="{{ 'collapse' + $index }}" class="panel-collapse collapse">
+                    <div class="panel-body" style="list-style-type: none;border: 1px" ng-repeat="sData in pm.sprintData">
+                        <!--Do same as name passing in course modal or id passing-->
+                        <li style="list-style: none;">
+                            <!--<i class="fa fa-play-circle-o" aria-hidden="true" ng-if="sData.videoName === 'video2'"></i>-->
+                            <!--<i class="fa fa-question" aria-hidden="true" ng-if="sData.QuizName === 'quiz5'"></i>-->
+                            <!--<i class="fa fa-cloud-upload" aria-hidden="true"></i> -->
+                            {{sData.offlineActivity || sData.QuizName || sData.courseName || sData.onlineActivity || sData.videoName}}
+                        </li>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </ul>
+</div>
+<div class="col-md-2"></div>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+            40% Complete (success)
+        </div>
+    </div>
+    <!--<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="close()">
+                                                        Close
+                                                    </button>-->
+</div>
+</div>
+</span>

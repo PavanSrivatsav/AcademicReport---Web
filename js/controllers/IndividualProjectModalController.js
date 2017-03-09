@@ -1,5 +1,5 @@
-revature.controller('projectModalCtrl', ['$scope', '$http', '$uibModalInstance', 'projId', '$rootScope', function ($scope, $http, $uibModalInstance, projId, $rootScope) {
-    console.log("project controller", projId);
+revature.controller('IndividualProjectModalController', ['$scope', '$http', '$uibModalInstance', 'projId', '$rootScope', function ($scope, $http, $uibModalInstance, projId, $rootScope) {
+    console.log("IndividualProjectModalController ", projId);
     $rootScope.title = " Academic | Project";
     $scope.projectModalList = [];
     $scope.loading = true;

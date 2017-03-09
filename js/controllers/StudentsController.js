@@ -1,128 +1,73 @@
 revature.controller('studentsProfileCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
-    $scope.courseJSON =
-        [
-            {
-                "Course": "HTML",
-                "Percentage": 43
+    $rootScope.title = " Academic | Students";
+    $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
 
-            },
-            {
-                "Course": "CSS",
-                "Percentage": 35
-
-            },
-            {
-                "Course": "Angular JS",
-                "Percentage": 10
-
-            },
-            {
-                "Course": "SQL",
-                "Percentage": 10
-
-            }
-        ];
+    var collegeId = $scope.loggedUser.collegeId;
+    var deptId = $scope.loggedUser.departmentId;
 
     $scope.sort = function (keyname) {
         $scope.sortKey = keyname;   //set the sortKey to the param passed
         $scope.reverse = !$scope.reverse; //if true make it false and vice versa
     }
+    $scope.loading = true;
+    $http.get('http://localhost:8080/core-app/students/overall/student/college/' + collegeId + '/departmentId/' + deptId).then(successCallBack, errorCallBack);
+    $scope.loading = false;
 
+    function successCallBack(response) {
+        //success code
+        $scope.studentslist = [];
+        var data = eval(response.data);
 
+        var temp = {
+            "id": data[0].id,
+            "name": data[0].name,
+            "collegeId": data[0].collegeId,
+            "emailId": data[0].emailId,
+            "departmentId": data[0].departmentId,
+            "departmentName": data[0].departmentName,
+            courses: {
+                currentProject: [],
+                currentCourse: [],
+                completedProject: [],
+                completedCourse: []
+            }
+        };
+        $scope.studentslist.push(temp);
 
-    //  $scope.loading = true; 
+        for (var i = 0; i < data.length; i++) {
+            if (temp.id != data[i].id) {
+                temp = {
+                    "id": data[i].id,
+                    "name": data[i].name,
+                    "collegeId": data[i].collegeId,
+                    "emailId": data[i].emailId,
+                    "departmentId": data[i].departmentId,
+                    "departmentName": data[i].departmentName,
+                    courses: {
+                        currentProject: [],
+                        currentCourse: [],
+                        completedProject: [],
+                        completedCourse: []
+                    }
+                }
+                $scope.studentslist.push(temp);
+            }
+            if (data[i].currentProject) {
+                temp.courses.currentProject.push(data[i].currentProject);
+            } else if (data[i].currentCourse) {
+                temp.courses.currentCourse.push(data[i].currentCourse);
+            } else if (data[i].completedProject) {
+                temp.courses.completedProject.push(data[i].completedProject);
+            } else if (data[i].completedCourse) {
+                temp.courses.completedCourse.push(data[i].completedCourse);
+            }
+        }
 
-    $rootScope.title = " Academic | Students";
-
-    // $http.get('http://localhost:8080/core-app/students/overall/student/current/courses/collegeId/3/departmentId/1').then(successCallback, errorCallback);
-    // $http.get('http://localhost:8080/core-app/students/overall/student/current/courses/collegeId/3/departmentId/1').then(successCallback1, errorCallback1);
-    // $http.get('http://localhost:8080/core-app/students/overall/student/completed/courses/collegeId/3/departmentId/1').then(successCallback2, errorCallback2);
-    // $http.get('http://localhost:8080/core-app/students/overall/student/current/projects/collegeId/3/departmentId/1').then(successCallback3, errorCallback3);
-    // $http.get('http://localhost:8080/core-app/students/overall/student/completed/projects/collegeId/3/departmentId/1').then(successCallback4, errorCallback4);
-
-
-    // function successCallback1(response) {
-    //     //success code
-    //     $scope.studentslist1 = eval(response.data);
-    //     console.log(JSON.stringify(response));
-    //     console.log((response));
-    //     $rootScope.result = response;
-
-    // }
-    // function errorCallback1(error) {
-    //     //error code
-    //     console.log('Error: ' + error);
-    // }
-
-
-
-
-    // function errorCallback(error) {
-    //     //error code
-    //     console.log('Error: ' + error);
-    // }
-
-    // function successCallback1(response) {
-    //     //success code
-    //     $scope.studentslist1 = eval(response.data);
-    //     console.log(JSON.stringify(response));
-    //     console.log((response));
-    //     $rootScope.result = response;
-
-    // }
-    // function errorCallback1(error) {
-    //     //error code
-    //     console.log('Error: ' + error);
-    // }
-
-
-    // function successCallback(response) {
-
-    //     //success code
-    //     if (JSON.stringify(response.data) == '[]') {
-    //         $scope.studentslist2 = eval(response.data);
-    //         $scope.par = '--';
-    //         console.log(JSON.stringify(response));
-    //         console.log((response));
-    //         $rootScope.result = response;
-    //         //the response is null
-    //     }
-    //     else {
-    //         function errorCallback2(error) {
-    //             //error code
-    //             console.log('Error: ' + error);
-    //         }
-
-    //     }
-    // }
-
-    // function successCallback3(response) {
-    //     //success code
-    //     $scope.studentslist3 = eval(response.data);
-    //     console.log(JSON.stringify(response));
-    //     console.log((response));
-    //     $rootScope.result = response;
-
-    // }
-    // function errorCallback3(error) {
-    //     //error code
-    //     console.log('Error: ' + error);
-    // }
-
-
-    // function successCallback4(response) {
-    //     //success code
-    //     $scope.studentslist4 = eval(response.data);
-    //     console.log(JSON.stringify(response));
-    //     console.log((response));
-    //     $rootScope.result = response;
-
-    // }
-    // function errorCallback4(error) {
-    //     //error code
-    //     console.log('Error: ' + error);
-    // }
-
-
+        console.log($scope.studentslist);
+    }
+    function errorCallBack(error) {
+        //error code
+        console.log('Error: ' + error);
+    }
 
 }]);

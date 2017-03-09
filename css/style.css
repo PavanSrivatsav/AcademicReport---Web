@@ -16,6 +16,12 @@ body {
     border-color: #42a5f5;
 }
 
+.cross-close-button{
+    font-size: 35px !important;
+    color: darkgray !important;
+    opacity: 10 !important;
+}
+
 /*header and footer**/
 #header-height {
     min-height: 80px !important;

@@ -23,7 +23,7 @@ revature.controller('courseCtrl', ['$scope', '$http', '$uibModal', '$rootScope',
         console.log('Error: ' + error);
     }
 
-    $scope.openView = function (id) {
+    $scope.openViewCourse = function (id) {
         var modal = $uibModal.open({
             animation: true,
             templateUrl: "modals/courseModal.html",

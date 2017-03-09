@@ -40,7 +40,7 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
 
                 console.log("result", result[i]);
                 var courseObj = result[i];
-                var courseData = [courseObj.NAME, courseObj['Trending course count']];
+                var courseData = [courseObj.courseName, courseObj.courseCount];
                 console.log("Chart Data", courseData);
                 courseChartData.push(courseData);
 
@@ -97,7 +97,8 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
             for (i in projectGraphResult) {
                 console.log("result", projectGraphResult[i]);
                 var projectObj = projectGraphResult[i];
-                var projectData = [projectObj.NAME, projectObj['Trending project count']];
+                console.log(projectObj);
+                var projectData = [projectObj.projectName, projectObj.projectCount];
                 console.log("Chart Data", projectData);
                 projectChartData.push(projectData);
             }
