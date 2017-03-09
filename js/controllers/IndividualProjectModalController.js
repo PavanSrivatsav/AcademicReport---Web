@@ -1,9 +1,42 @@
-revature.controller('IndividualProjectModalController', ['$scope', '$http', '$uibModalInstance', 'projId', '$rootScope', function ($scope, $http, $uibModalInstance, projId, $rootScope) {
+revature.controller('IndividualProjectModalController', ['$scope', '$http', '$uibModalInstance', 'projId', '$rootScope', 'studId', '$timeout', function ($scope, $http, $uibModalInstance, projId, $rootScope, studId, $timeout) {
     console.log("IndividualProjectModalController ", projId);
     $rootScope.title = " Academic | Project";
     $scope.projectModalList = [];
     $scope.loading = true;
+    console.log("Student id", studId);
     $http.get('http://localhost:8080/core-app/projects/list/project/detail/project/' + projId).then(successCallback, errorCallback);
+
+    //Total Project Count
+
+    $http.get('http://localhost:8080/core-app/projects/total/project/count/project/' + projId).then(successCalledBack, errorCalledBack);
+
+    //Single Project Count of student
+
+    $http.get('http://localhost:8080/core-app/students/project/completed/student/project/count/student/' + studId + '/project/' + projId).then(success, error);
+
+    function success(response) {
+        //succes
+        $scope.loading = true;
+        $scope.StudentProjectCount = eval(response.data.count);
+        console.log("total count ", $scope.StudentProjectCount);
+        $scope.loading = false;
+    }
+    function error(err) {
+        //error
+        console.log("error", err);
+    }
+
+    function successCalledBack(response) {
+        //succes
+        $scope.loading = true;
+        $scope.TotalProjectCount = eval(response.data[0].cunt);
+        console.log("total count ", $scope.TotalProjectCount);
+        $scope.loading = false;
+    }
+    function errorCalledBack(error) {
+        //error
+        console.log("error", error);
+    }
 
     function successCallback(response) {
         //success code
@@ -67,5 +100,15 @@ revature.controller('IndividualProjectModalController', ['$scope', '$http', '$ui
     $scope.close = function () {
         $uibModalInstance.close();
     }
+    $timeout(function () {
+        $scope.loading = true;
+        console.log("hello", Number(($scope.StudentProjectCount / $scope.TotalProjectCount) * 100));
+        $scope.percentage = Number(($scope.StudentProjectCount / $scope.TotalProjectCount) * 100);
+        $scope.percentageStyle = { width: $scope.percentage + '%' }
+        $scope.loading = false;
+    }, 2000)
+    console.log($scope.percentage);
+    // $scope.loading = false;
+
 
 }]);

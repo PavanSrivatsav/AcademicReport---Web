@@ -54,9 +54,15 @@
 </div>
 </div>
 <div class="modal-footer">
-    <div class="progress">
+    <!--<div class="progress">
         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:40%">
             40% Complete (success)
+        </div>
+    </div>-->
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="percentageStyle">
+            {{percentage | limitTo:2}}% Complete
+
         </div>
     </div>
     <!--<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="close()">

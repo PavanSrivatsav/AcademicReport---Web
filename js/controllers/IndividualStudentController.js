@@ -90,6 +90,9 @@ revature.controller('individualStudentCtrl', ['$scope', '$http', '$stateParams',
             resolve: {
                 projId: function () {
                     return id;
+                },
+                studId: function () {
+                    return stuId;
                 }
             }
         })
