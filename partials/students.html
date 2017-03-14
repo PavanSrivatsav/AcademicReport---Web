@@ -1,8 +1,8 @@
 <div style="text-align: center">
-    <img id="mySpinner" src="images/spinner/loading.gif" ng-show="loading" />
+    <img id="mySpinner" src="../images/spinner/loading.gif" ng-show="loading" />
 </div>
 <span ng-show="!loading">
-<div class="row" style="background-color: #474C55;height:50px;width:101%;" >
+<div class="row" style="background-color: #474C55;height:50px;" >
     <div class="container ">
         <ol class="breadcrumb bread">
             <li class="breadcrumb-item ">Student's Profile</li>
@@ -11,23 +11,20 @@
 </div>
 
 <br>
-<div class="container" >
+<div class="container">
     <div class="row ">
 
         <!--profile -->
         <div class="col-md-12 container">
             <div class="panel panel-default">
-                <!--<div class="input-group container">-->
                 <span><i class="fa fa-search" aria-hidden="true"></i></span> &nbsp;
-<!--<input id="nameSearch" type="text" onKeyUp="myFunction()" placeholder=" Search Student Name">-->
 <input type="text" ng-model="search" placeholder="Search">
-<!--</div>-->
 </div>
 </div>
 </div>
 
 <div class="container col-lg-12 col-md-12 col-xs-12 col-sm-12">
-    <table class="table table-responsive table-hover table-bordered ">
+    <table class="table  table-hover table-bordered" style="overflow: scroll;">
         <thead>
             <tr class="active">
                 <th class="text-center" ng-click="sort('name')">Name
@@ -49,16 +46,16 @@
             <td>{{i.name}}</td>
             <td>{{i.departmentName}}</td>
             <td>{{i.emailId}}</td>
-            <td>
+            <td style=" overflow: auto; height: 120px;">
                 <div ng-repeat="ccourse in i.courses.completedCourse">{{ccourse}}</div>
             </td>
-            <td>
+            <td style=" overflow: auto; height: 120px;">
                 <div ng-repeat="ccourse in i.courses.currentCourse">{{ccourse}}</div>
             </td>
-            <td>
+            <td style=" overflow: auto; height: 120px;">
                 <div ng-repeat="ccourse in i.courses.completedProject">{{ccourse}}</div>
             </td>
-            <td>
+            <td style=" overflow: auto; height: 120px;">
                 <div ng-repeat="ccourse in i.courses.currentProject">{{ccourse}}</div>
             </td>
             <td><button class="btn btn-primary" ui-sref="individualStudent ({id: i.id , name: i.name})">View</button></td>

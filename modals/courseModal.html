@@ -15,9 +15,9 @@
 
 
 <div class="modal-header">
-    <div style="text-align: center">
-        <img id="mySpinner" src="images/spinner/spinner-small.gif" ng-show="loading" />
-    </div>
+<div style="text-align: center">
+    <img id="mySpinner" src="images/spinner/spinner-small.gif" ng-show="loading" />
+</div>
     <span ng-show="!loading">
     <div ng-repeat="a in courseModalList" ng-if="a.id === id  && a.cont !=null">
         <button type="button " class="close cross-close-button" data-dismiss="modal " ng-click="close() ">&times;</button>

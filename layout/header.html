@@ -63,14 +63,15 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="dropdown" style="margin-top:20px;" class="link-remove">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black; ">
+                            <li>
                             <img src="../images/user.png " class="img-circle" height="50px">
-                            <!--<li>-->
+                            
                             &nbsp;&nbsp;{{loggedUser.name}}
                             <br>
                             <center><b style="font-size:12px;">&nbsp;&nbsp;{{loggedUser.roleName}}</b></center>
-                            <!--</li>-->
+                            </li>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -86,7 +87,7 @@
                         </span>
                     </a>
                         </ul>
-                        </li>
+                        </div>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

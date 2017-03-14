@@ -1,5 +1,5 @@
 revature.controller('courseModal', ['$scope', '$http', 'id', '$uibModalInstance', '$rootScope', function ($scope, $http, id, $uibModalInstance, $rootScope) {
-    console.log("course controller", id);
+    console.log("course modal controller", id);
     $rootScope.title = " Academic | Course";
     var courseId = id;
     $scope.id = courseId;
@@ -26,7 +26,5 @@ revature.controller('courseModal', ['$scope', '$http', 'id', '$uibModalInstance'
     $scope.close = function () {
         $uibModalInstance.close();
     }
-
-
 
 }]);

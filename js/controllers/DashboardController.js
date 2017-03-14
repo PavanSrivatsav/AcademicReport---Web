@@ -77,8 +77,8 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
         $scope.projectList = eval(response);
         console.log(JSON.stringify(response));
         $scope.loadedProjectGraphData($scope.projectList.data);
+
         $scope.loading = false;
-        $rootScope.loading = false;
     }
     function projecterrorCallback(error) {
         //error code
@@ -129,6 +129,7 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
     function success(response) {
         //success code
         $scope.activeCourseStudents = eval(response);
+        console.log(JSON.stringify(response));
         $scope.loading = false;
     }
     function error(err) {
@@ -137,12 +138,13 @@ revature.controller('dashboardCtrl', ['$scope', '$http', '$rootScope', function 
     }
 
     //Active Project Students
-    $scope.loading = true;
+
     $http.get(' http://localhost:8080/core-app/dashboard/activeproject/collegeId/' + collegeId + '/departmentId/' + deptId).then(succes, err);
 
     function succes(response) {
         //success code
         $scope.activeProjectStudents = eval(response);
+        console.log(JSON.stringify(response));
         $scope.loading = false;
     }
     function err(er) {

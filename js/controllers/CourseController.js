@@ -37,4 +37,5 @@ revature.controller('courseCtrl', ['$scope', '$http', '$uibModal', '$rootScope',
             }
         })
     }
+    
 }]);

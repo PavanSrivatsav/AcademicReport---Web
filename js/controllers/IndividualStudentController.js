@@ -25,9 +25,8 @@ revature.controller('individualStudentCtrl', ['$scope', '$http', '$stateParams',
         $scope.indStud = eval(response.data);
         console.log(JSON.stringify(response));
         console.log((response));
-        $scope.loading = false;
+        
         //console.log("indStud"+JSON.stringify($scope.indStud));
-        $rootScope.title = "";
 
     }
     function errorCallback(error) {
@@ -42,7 +41,7 @@ revature.controller('individualStudentCtrl', ['$scope', '$http', '$stateParams',
         $scope.studProjects = eval(response.data);
         console.log(JSON.stringify(response));
         console.log((response));
-        $scope.loading = false;
+        
     }
     function error(err) {
         //error code
@@ -97,4 +96,5 @@ revature.controller('individualStudentCtrl', ['$scope', '$http', '$stateParams',
             }
         })
     }
+    
 }]);

@@ -19,7 +19,7 @@ revature.controller('IndividualProjectModalController', ['$scope', '$http', '$ui
         $scope.loading = true;
         $scope.StudentProjectCount = eval(response.data.count);
         console.log("total count ", $scope.StudentProjectCount);
-        $scope.loading = false;
+        
     }
     function error(err) {
         //error
@@ -31,7 +31,7 @@ revature.controller('IndividualProjectModalController', ['$scope', '$http', '$ui
         $scope.loading = true;
         $scope.TotalProjectCount = eval(response.data[0].cunt);
         console.log("total count ", $scope.TotalProjectCount);
-        $scope.loading = false;
+        
     }
     function errorCalledBack(error) {
         //error
@@ -91,7 +91,7 @@ revature.controller('IndividualProjectModalController', ['$scope', '$http', '$ui
             }
             return -1;
         }
-        $scope.loading = false;
+        
     }
     function errorCallback(error) {
         //error code
@@ -108,7 +108,7 @@ revature.controller('IndividualProjectModalController', ['$scope', '$http', '$ui
         $scope.loading = false;
     }, 2000)
     console.log($scope.percentage);
-    // $scope.loading = false;
+    
 
 
 }]);

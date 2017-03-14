@@ -1,4 +1,5 @@
 revature.controller('studentsProfileCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+
     $rootScope.title = " Academic | Students";
     $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
 
@@ -11,13 +12,14 @@ revature.controller('studentsProfileCtrl', ['$scope', '$http', '$rootScope', fun
     }
     $scope.loading = true;
     $http.get('http://localhost:8080/core-app/students/overall/student/college/' + collegeId + '/departmentId/' + deptId).then(successCallBack, errorCallBack);
-    $scope.loading = false;
+
 
     function successCallBack(response) {
         //success code
+        $scope.loading = true;
         $scope.studentslist = [];
         var data = eval(response.data);
-
+        console.log(response);
         var temp = {
             "id": data[0].id,
             "name": data[0].name,
@@ -64,6 +66,7 @@ revature.controller('studentsProfileCtrl', ['$scope', '$http', '$rootScope', fun
         }
 
         console.log($scope.studentslist);
+        $scope.loading = false;
     }
     function errorCallBack(error) {
         //error code

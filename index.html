@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 
     <!--Materialize-->
-    <link rel="stylesheet" href="css/lib/materialize.min.css">
+    <!--<link rel="stylesheet" href="css/lib/materialize.min.css">-->
 
     <!--Icons-->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -37,7 +37,7 @@
     <script src="js/lib/lodash.min.js"></script>
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/lib/materialize.min.js"></script>
+    <!--<script src="js/lib/materialize.min.js"></script>-->
 
     <!--Scripts-->
     <script src="js/app.js"></script>
@@ -52,34 +52,46 @@
 
 </head>
 
-<body>
+<body ng-controller="indexController">
     <!-- Header-->
 
-    <div class=" nav navbar container row ">
-        <a class="navbar-brand">
-            <img src="images/logo.png" height="60px" />
-        </a>
-        <form class="form-group" ng-controller="loginController">
-            <!--<form class="form-group">-->
-            <ul class="nav navbar-nav navbar-brand navbar-right">
-                <!--<li><i class="fa fa-lock" aria-hidden="true" style="vertical-align: middle"></i></li>-->
-                <li><input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="password">                    {{error}}
-                    <li>&nbsp;&nbsp;
-                        <button class="btn btn-sm  waves-effect waves-light" id="login-btn" type="submit" ng-click="login()">Login</button>
-                    </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-brand navbar-right">
-                <li><input type="email" id="inputEmail" class="form-control" placeholder="Email address" required ng-model="emailId">
-                </li>
-                <br>
-                <!--<li > <b> Forgot Password? </b></li>-->
+    <nav class="navbar navbar-default" id="index">
+        <div class="container container-fluid">
 
-            </ul>
-        </form>
-    </div>
-    <br>
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height:470px;" data-interval="2000">
-        <!-- Wrapper for slides -->
+            <div class="navbar-header">
+                <div type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-collapse" aria-expanded="true" style="border-color: #FFFFFF !important;">
+                </div>
+                <a class="navbar-brand" ui-sref="dashboard"><img src="../images/logo.png" height="60px" /></a>
+            </div>
+
+            <div class="navbar-collapse collapse in" id="header-collapse" style="border-color: #FFFFFF !important;">
+
+                <ul class="nav navbar-nav navbar-right" style="margin-top:30px" ng-controller="loginController">
+
+                    <li style="margin-right:20px;margin-bottom:10px;">
+                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required ng-model="emailId">
+                    </li>
+                    <li style="margin-right:20px;">
+                        <!--<label id="eye">-->
+                        <input type="password" id="inputPassword" class="form-control test" placeholder="Password" required ng-model="password">
+                        <li>
+                            <i class="fa fa-eye-slash" aria-hidden="true" id="eye" style="margin-top: 10px;margin-left:10px;"></i>
+                        </li>
+                        <!--</label>-->
+                    </li>
+                    <li>&nbsp;&nbsp;
+                        <button class="btn btn-sm btn-primary  waves-effect waves-light" id="login-btn" type="submit" ng-click="login()">Login</button>                        {{error}}
+                    </li>
+                    <li> {{error}}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+    <div id="carousel-images" class="carousel slide" data-ride="carousel" style="height:40%;" data-interval="2000">
+
         <div class="carousel-inner">
             <div class="item active">
                 <img src="images/slider1.jpg" alt="slider1">
@@ -88,9 +100,9 @@
                 <img src="images/slider2.jpg" alt="slider2">
             </div>
         </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"></a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"></a>
+
+        <a class="left carousel-control" href="#carousel-images" role="button" data-slide="prev"></a>
+        <a class="right carousel-control" href="#carousel-images" role="button" data-slide="next"></a>
     </div>
 
 
@@ -99,7 +111,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-12">
                     <p id="footer">
-                        <center><b style="font-size: 1.4rem">RevaturePro</b> © Copyright 2017</center>
+                        <center><b>RevaturePro</b> © Copyright 2017</center>
                     </p>
 
                 </div>

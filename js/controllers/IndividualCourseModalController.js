@@ -28,9 +28,9 @@ revature.controller('IndividualCourseModalController', ['$scope', '$http', 'id',
         $scope.courseCount = eval(response.data[0].count);
         console.log(JSON.stringify(response));
         // console.log((response));
-        // $rootScope.result = response;
+        
         console.log("Single course completed count ", $scope.courseCount);
-       // $scope.loading = false;
+       
     }
     function errorCall(error) {
         //error code
@@ -43,9 +43,9 @@ revature.controller('IndividualCourseModalController', ['$scope', '$http', 'id',
         $scope.courseTotalCount = eval(response.data[0].count);
         console.log(JSON.stringify(response));
         // console.log((response));
-        // $rootScope.result = response;
+       
         console.log("Total course count ", $scope.courseTotalCount);
-       // $scope.loading = false;
+       
         return $scope.courseTotalCount;
     }
     function errCallback(error) {
@@ -59,9 +59,8 @@ revature.controller('IndividualCourseModalController', ['$scope', '$http', 'id',
         $scope.courseModalList = eval(response.data);
         console.log(JSON.stringify(response));
         // console.log((response));
-        // $rootScope.result = response;
         console.log($scope.courseModalList);
-        //$scope.loading = false;
+        
     }
     function errorCallback(error) {
         //error code
@@ -79,7 +78,7 @@ revature.controller('IndividualCourseModalController', ['$scope', '$http', 'id',
            $scope.loading = false;
     }, 2000)
     console.log($scope.percentage);
-    // $scope.loading = false;
+    
 
    
 }]);
