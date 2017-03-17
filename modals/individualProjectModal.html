@@ -36,10 +36,12 @@
                     <div class="panel-body" style="list-style-type: none;border: 1px" ng-repeat="sData in pm.sprintData">
                         <!--Do same as name passing in course modal or id passing-->
                         <li style="list-style: none;">
-                            <!--<i class="fa fa-play-circle-o" aria-hidden="true" ng-if="sData.videoName === 'video2'"></i>-->
-                            <!--<i class="fa fa-question" aria-hidden="true" ng-if="sData.QuizName === 'quiz5'"></i>-->
-                            <!--<i class="fa fa-cloud-upload" aria-hidden="true"></i> -->
-                            {{sData.offlineActivity || sData.QuizName || sData.courseName || sData.onlineActivity || sData.videoName}}
+                            <i class="fa fa-play-circle-o" aria-hidden="true" ng-if="sData.videoName" style="color:red;"></i>
+                            <i class="fa fa-question" aria-hidden="true" ng-if="sData.QuizName" style="color:orange;"></i>
+                            <i class="fa fa-file-code-o" aria-hidden="true" ng-if="sData.offlineActivity" style="color:black;"></i>
+                            <i class="fa fa-cloud" aria-hidden="true" ng-if="sData.onlineActivity" style="color:blue;"></i>
+                            <i class="fa fa-book" aria-hidden="true" ng-if="sData.courseName" style="color:Green;"></i> &nbsp;{{sData.offlineActivity
+                            || sData.QuizName || sData.courseName || sData.onlineActivity || sData.videoName}}
                         </li>
                     </div>
                 </div>

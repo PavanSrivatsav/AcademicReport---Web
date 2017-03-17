@@ -7,7 +7,7 @@
 /***Responsive***/
 
 @media screen and (max-width: 1000px) {
-	table {
+	.students {
 		overflow-x: auto;
 		display: block;
 	}

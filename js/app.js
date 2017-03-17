@@ -2,7 +2,7 @@
  * Created by PavanSrivatsav on 28-12-2016.
  */
 
-var revature = angular.module('academicReport', ['angularUtils.directives.dirPagination', 'ui.router', 'ui.bootstrap']);
+var revature = angular.module('academicReport', ['ui.router', 'ui.bootstrap']);
 
 revature.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -52,41 +52,21 @@ revature.config(function ($stateProvider, $urlRouterProvider) {
 
 });
 
-
-revature.controller('loginController', ['$rootScope', '$scope', '$http', '$window', '$timeout', function ($rootScope, $scope, $http, $window, $timeout) {
-    console.log("login ctrl");
-    $scope.login = function () {
-        console.log("login function");
-        var emailId = $scope.emailId;
-        var pass = $scope.password;
-
-        var url = 'http://localhost:8080/core-app/users/login/' + emailId + '/' + pass;
-        console.log(url);
-        $http.get(url).success(function (response) {
-            var user = response != null && response.emailId != null;
-            console.log(user);
-            $scope.userData = response;
-
-            $rootScope.LOGGED_USER = $scope.userData;
-
-            if (user) {
-                localStorage.setItem("LOGGED_IN_USER", JSON.stringify($scope.userData));
-                $window.location.href = 'academic-report.html?/#/dashboard';
-                console.log("success");
-
+revature.filter('getById', function () {
+    return function (input, id) {
+        var found = [];
+        console.log(input, id);
+        for (var i = 0; i < input.length; i++) {
+            /*
+                CHA ==>CHA ==> lodash will return true
+            */
+            if (_.includes(input[i].name.toUpperCase(), id.toUpperCase())) {
+                found.push(input[i]);
             }
-            else {
-                $scope.error = "Invalid Login";
-                console.log("error");
-            }
-
-        }).error(function () {
-            $window.location.href = 'index.html';
-        })
-
-    };
-
-}]);
+        }
+        return found;
+    }
+});
 
 revature.controller('mainCtrl', ['$scope', '$window', function ($scope, $window) {
     console.log("mainctrl");
@@ -96,93 +76,5 @@ revature.controller('mainCtrl', ['$scope', '$window', function ($scope, $window)
     }
 }]);
 
-revature.controller('indexController', ['$scope', '$window', function ($scope, $window) {
-    console.log("indexController");
-    $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
-    if ($scope.loggedUser != null) {
-        $window.location.href = "academic-report.html?/#/dashboard";
-    }
-
-    var pwShown = 0;
-
-    document.getElementById("eye").addEventListener("click", function () {
-        if (pwShown == 0) {
-            pwShown = 1;
-            show();
-        } else {
-            pwShown = 0;
-            hide();
-        }
-    }, false);
-
-    function show() {
-        var p = document.getElementById('eye');
-        var pwd = document.getElementById('inputPassword');
-        p.setAttribute('class', 'fa fa-eye');
-        pwd.setAttribute('type', 'text');
-
-    }
-
-    function hide() {
-        var p = document.getElementById('eye');
-        var pwd = document.getElementById('inputPassword');
-        p.setAttribute('class', 'fa fa-eye-slash');
-        pwd.setAttribute('type', 'password');
-    }
-
-}])
-revature.controller('headerCtrl', ['$scope', '$uibModal', function ($scope, $uibModal) {
-    console.log("header ctrl called");
-    $scope.loggedUser = JSON.parse(localStorage.getItem('LOGGED_IN_USER'));
-    console.log("Name of logged user", $scope.loggedUser.name);
-    $scope.username = $scope.loggedUser.name;
-    $scope.loading = true;
-    $scope.changePassword = function () {
-        var modal = $uibModal.open({
-            animation: true,
-            templateUrl: "modals/changePasswordModal.html",
-            controller: "headerModalCtrl",
-            size: 'lg',
-            backdrop: 'static',
-
-        })
-    }
-    $scope.loading = false;
-
-    $scope.logout = function () {
-        console.log("logout successful");
-        localStorage.clear();
-    }
-
-    // $scope.check = function () {
-    //     console.log("check called");
-    //     if ($scope.retype === $scope.pass) {
-    //         console.log("true");
-    //         return true;
-    //     }
-    //     else {
-    //         console.log("false");
-    //         return false;
-    //     }
-
-    // }
-}]);
-
-revature.controller('headerModalCtrl', ['$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {
-    console.log("headerModal ctrl called");
-    $scope.loading = true;
-    $scope.close = function () {
-        $uibModalInstance.close();
-    }
-    $scope.loading = false;
-}]);
-
-
-revature.controller('footerCtrl', ['$scope', function ($scope) {
-    console.log("footer ctrl called");
-    $scope.loading = true;
-
-    $scope.loading = false;
-}]);
 
 

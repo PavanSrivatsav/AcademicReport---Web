@@ -17,14 +17,19 @@
         <!--profile -->
         <div class="col-md-12 container">
             <div class="panel panel-default">
+                <form> 
                 <span><i class="fa fa-search" aria-hidden="true"></i></span> &nbsp;
-<input type="text" ng-model="search" placeholder="Search">
+<input type="text" ng-model="search" placeholder="Search">&nbsp;
+<button ng-if="!showCancel" ng-click="searchProjects(search)" class="btn btn-warning" style="margin-bottom: 2px;">Search</button>
+<button ng-if="showCancel" ng-click="clearSearch()" class="btn btn-warning" style="margin-bottom: 2px;">Clear</button>
+
+</form>
 </div>
 </div>
 </div>
 
 <div class="container col-lg-12 col-md-12 col-xs-12 col-sm-12">
-    <table class="table  table-hover table-bordered" style="overflow: scroll;">
+    <table class="table table-hover table-bordered students">
         <thead>
             <tr class="active">
                 <th class="text-center" ng-click="sort('name')">Name
@@ -42,36 +47,30 @@
             </tr>
         </thead>
 
-        <tr ng-repeat="i in studentslist | filter: search | orderBy:sortKey:reverse">
+        <tr ng-repeat="i in studentslist.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy:sortKey:reverse ">
             <td>{{i.name}}</td>
             <td>{{i.departmentName}}</td>
             <td>{{i.emailId}}</td>
-            <td style=" overflow: auto; height: 120px;">
-                <div ng-repeat="ccourse in i.courses.completedCourse">{{ccourse}}</div>
+            <td style=" overflow: auto; height: 120px; ">
+                <div ng-repeat="ccourse in i.courses.completedCourse ">{{ccourse}}<br><br></div>
             </td>
-            <td style=" overflow: auto; height: 120px;">
-                <div ng-repeat="ccourse in i.courses.currentCourse">{{ccourse}}</div>
+            <td style=" overflow: auto; height: 120px; ">
+                <div ng-repeat="ccourse in i.courses.currentCourse ">{{ccourse}}<br><br></div>
             </td>
-            <td style=" overflow: auto; height: 120px;">
-                <div ng-repeat="ccourse in i.courses.completedProject">{{ccourse}}</div>
+            <td style=" overflow: auto; height: 120px; ">
+                <div ng-repeat="ccourse in i.courses.completedProject ">{{ccourse}}<br><br></div>
             </td>
-            <td style=" overflow: auto; height: 120px;">
-                <div ng-repeat="ccourse in i.courses.currentProject">{{ccourse}}</div>
+            <td style=" overflow: auto; height: 120px; ">
+                <div ng-repeat="ccourse in i.courses.currentProject ">{{ccourse}}<br><br></div>
             </td>
-            <td><button class="btn btn-primary" ui-sref="individualStudent ({id: i.id , name: i.name})">View</button></td>
+            <td style="vertical-align:middle;"><button class="btn btn-primary " ui-sref="individualStudent ({id: i.id , name: i.name}) ">View</button></td>
         </tr>
-        <!--<tr dir-paginate="a in studentslist | itemsPerPage:3| filter:search | orderBy:sortKey:reverse">
-                <td>{{a.name}}</td>
-                <td>{{a.departmentName}}</td>
-                <td>{{a.emailId}}</td>
-                <td>{{a.completedCourse}}</td>
-                <td>{{a.currentCourse}}</td>
-                <td>{{a.completedProject}}</td>
-                <td>{{a.currentProject}}</td>
-            </tr>-->
     </table>
-    <dir-pagination-controls max-size="2" direction-links="true" boundary-links="true">
-    </dir-pagination-controls>
+    <center ng-show="showPages">
+        <ul uib-pagination total-items="totalItems" ng-model="currentPage" class="pagination-md" items-per-page="itemsPerPage" max-size="maxSize">
+        </ul>
+    </center>
 </div>
+
 </div>
 </span>

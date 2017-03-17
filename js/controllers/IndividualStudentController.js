@@ -25,7 +25,7 @@ revature.controller('individualStudentCtrl', ['$scope', '$http', '$stateParams',
         $scope.indStud = eval(response.data);
         console.log(JSON.stringify(response));
         console.log((response));
-        
+
         //console.log("indStud"+JSON.stringify($scope.indStud));
 
     }
@@ -41,7 +41,7 @@ revature.controller('individualStudentCtrl', ['$scope', '$http', '$stateParams',
         $scope.studProjects = eval(response.data);
         console.log(JSON.stringify(response));
         console.log((response));
-        
+
     }
     function error(err) {
         //error code
@@ -96,5 +96,5 @@ revature.controller('individualStudentCtrl', ['$scope', '$http', '$stateParams',
             }
         })
     }
-    
+
 }]);

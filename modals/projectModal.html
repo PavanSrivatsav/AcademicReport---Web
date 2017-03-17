@@ -4,7 +4,7 @@
     </div>
     <span ng-show="!loading">
     <div class="modal-header">
-        <button type="button" class="close cross-close-button" data-dismiss="modal" ng-click="close()">&times;</button>
+        <button type="button" class="close cross-close-button" data-dismiss="modal" ng-click="close()" >&times;</button>
         <h4 class="modal-title"><strong>{{projectModalList.name}}</strong></h4>
 
         <div class="modal-body">
@@ -37,13 +37,24 @@
                     <div class="panel-body" style="list-style-type: none;border: 1px" ng-repeat="sData in pm.sprintData">
                         <!--Do same as name passing in course modal or id passing-->
                         <li style="list-style: none;">
-                            <!--<i class="fa fa-play-circle-o" aria-hidden="true" ng-if="sData.videoName === 'video2'"></i>-->
-                            <!--<i class="fa fa-question" aria-hidden="true" ng-if="sData.QuizName === 'quiz5'"></i>-->
-                            <!--<i class="fa fa-cloud-upload" aria-hidden="true"></i> -->
-                            {{sData.offlineActivity || sData.QuizName || sData.courseName || sData.onlineActivity || sData.videoName}}
+                            <i class="fa fa-play-circle-o" aria-hidden="true" ng-if="sData.videoName" style="color:red;"></i>
+                            <i class="fa fa-question" aria-hidden="true" ng-if="sData.QuizName" style="color:orange;"></i>
+                            <i class="fa fa-file-code-o" aria-hidden="true" ng-if="sData.offlineActivity" style="color:black;"></i>
+                            <i class="fa fa-cloud" aria-hidden="true" ng-if="sData.onlineActivity" style="color:blue;"></i>
+                            <i class="fa fa-book" aria-hidden="true" ng-if="sData.courseName" style="color:Green;"></i> &nbsp;{{sData.offlineActivity
+                            || sData.QuizName || sData.courseName || sData.onlineActivity || sData.videoName}}
                         </li>
                     </div>
                 </div>
+                <!--<uib-accordion close-others="oneAtATime">
+                    <uib-accordion-group panel-class="panel" class="accordion" is-open="status.open" >
+                        <uib-accordion-heading class="warning-lighter">{{pm.sprintName}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i></uib-accordion-heading>
+                        <ul>
+                        <li  class="sublist-item" ng-repeat="sData in pm.sprintData"> {{sData.offlineActivity || sData.QuizName
+                || sData.courseName || sData.onlineActivity || sData.videoName}}<br> </li>                        
+                        </ul>
+                    </uib-accordion-group>
+                </uib-accordion>-->
             </div>
 
         </div>

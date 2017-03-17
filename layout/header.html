@@ -29,7 +29,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 
     <!--External Scripts-->
-    <script src="../js/dirPagination.js"></script>
     <script src="../js/lib/angular-ui-router.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../js/lib/ui-bootstrap.js"></script>
@@ -66,11 +65,9 @@
                     <div class="dropdown" style="margin-top:20px;" class="link-remove">
                         <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black; ">
                             <li>
-                            <img src="../images/user.png " class="img-circle" height="50px">
-                            
-                            &nbsp;&nbsp;{{loggedUser.name}}
-                            <br>
-                            <center><b style="font-size:12px;">&nbsp;&nbsp;{{loggedUser.roleName}}</b></center>
+                                <img src="../images/user.png " class="img-circle" height="50px"> &nbsp;&nbsp;{{loggedUser.name}}
+                                <br>
+                                <center><b style="font-size:12px;">&nbsp;&nbsp;{{loggedUser.roleName}}</b></center>
                             </li>
                         </a>
                         <ul class="dropdown-menu">
@@ -87,7 +84,7 @@
                         </span>
                     </a>
                         </ul>
-                        </div>
+                    </div>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
